@@ -4,19 +4,6 @@ return {
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"mbbill/undotree",
 	{ "NvChad/nvim-colorizer.lua", opts = {} },
-	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
-		"lewis6991/gitsigns.nvim",
-		opts = {
-			signs = {
-				add = { text = "+" },
-				change = { text = "~" },
-				delete = { text = "_" },
-				topdelete = { text = "‾" },
-				changedelete = { text = "~" },
-			},
-		},
-	},
-
 	-- Highlight todo, notes, etc in comments
 	{
 		"folke/todo-comments.nvim",
