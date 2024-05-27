@@ -22,11 +22,12 @@ return {
 					{
 						"rafamadriz/friendly-snippets",
 						config = function()
-							require("luasnip.loaders.from_vscode").load()
+							require("luasnip.loaders.from_vscode").lazy_load()
 						end,
 					},
 				},
 			},
+			capabilities = capabilities,
 			"saadparwaiz1/cmp_luasnip",
 			-- Adds other completion capabilities.
 			--  nvim-cmp does not ship with all sources by default. They are split
