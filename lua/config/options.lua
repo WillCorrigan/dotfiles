@@ -107,6 +107,8 @@ vim.keymap.set("n", "<leader>wf", "<cmd>NvimTreeFindFile<CR>")
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
