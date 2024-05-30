@@ -101,16 +101,28 @@ return {
 				--    https://github.com/pmizio/typescript-tools.nvim
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
-				tsserver = {
+				tailwindcss = {
 					capabilities = capabilities,
-					settings = {
-						completions = {
-							completeFunctionCalls = true,
-						},
-					},
+					on_attach = function(_, bufnr)
+						require("tailwindcss-colors").buf_attach(bufnr)
+					end,
 				},
-				--
-
+				-- tsserver = {
+				-- 	capabilities = capabilities,
+				-- 	settings = {
+				-- 		completions = {
+				-- 			completeFunctionCalls = true,
+				-- 		},
+				-- 	},
+				-- },
+				eslint = {
+					on_attach = function(_, bufnr)
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							buffer = bufnr,
+							command = "EslintFixAll",
+						})
+					end,
+				},
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes = { ...},

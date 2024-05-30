@@ -36,7 +36,7 @@ return {
 						"node_modules",
 					},
 				},
-				-- pickers = {}
+				-- pickers = {},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown(),

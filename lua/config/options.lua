@@ -119,3 +119,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+vim.keymap.set("n", "<leader>cf", "<cmd>TSToolsFixAll<CR>")
+vim.keymap.set("n", "<leader>ci", "<cmd>TSToolsAddMissingImports<CR>")
+vim.keymap.set("n", "<leader>co", "<cmd>TSToolsOrganizeImports<CR>")
+vim.keymap.set("n", "<leader>rf", "<cmd>TSToolsRenameFile<CR>")
+--
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js" },
+-- 	callback = function()
+-- 		print("Hello")
+-- 		if vim.fn.exists(":TSToolsFixAll") then
+-- 			vim.cmd("TSToolsFixAll")
+-- 			vim.cmd("TSToolsAddMissingImports")
+-- 			vim.cmd("TSToolsOrganizeImports")
+-- 			return nil
+-- 		end
+-- 		return {}
+-- 	end,
+-- })
