@@ -125,11 +125,20 @@ vim.keymap.set("n", "<leader>ci", "<cmd>TSToolsAddMissingImports<CR>")
 vim.keymap.set("n", "<leader>co", "<cmd>TSToolsOrganizeImports<CR>")
 vim.keymap.set("n", "<leader>rf", "<cmd>TSToolsRenameFile<CR>")
 --
+vim.keymap.set("x", "<leader>re", "<cmd>Refactor extract<CR>")
+vim.keymap.set("x", "<leader>rf", "<cmd>Refactor extract_to_file<CR>")
+vim.keymap.set("x", "<leader>rv", "<cmd>Refactor extract_var<CR>")
+vim.keymap.set({ "n", "x" }, "<leader>ri", "<cmd>Refactor inline_var<CR>")
+vim.keymap.set("n", "<leader>rI", "<cmd>Refactor inline_func<CR>")
+vim.keymap.set("n", "<leader>rb", "<cmd>Refactor extract_block<CR>")
+vim.keymap.set("n", "<leader>rbf", "<cmd>Refactor extract_block_to_file<CR>")
+vim.keymap.set("n", "<leader><F5>", vim.cmd.UndotreeToggle)
+--
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 -- 	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js" },
 -- 	callback = function()
 -- 		print("Hello")
--- 		if vim.fn.exists(":TSToolsFixAll") then
+-- 		if vim.fn.exists("<cmd>TSToolsFixAll") then
 -- 			vim.cmd("TSToolsFixAll")
 -- 			vim.cmd("TSToolsAddMissingImports")
 -- 			vim.cmd("TSToolsOrganizeImports")
@@ -138,3 +147,10 @@ vim.keymap.set("n", "<leader>rf", "<cmd>TSToolsRenameFile<CR>")
 -- 		return {}
 -- 	end,
 -- })
+vim.filetype.add({ extension = { mdx = "mdx" } })
+
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]

@@ -54,14 +54,15 @@ return {
 	},
 	{
 		"windwp/nvim-ts-autotag",
-		opts = {
-			-- Defaults
-			enable_close = true, -- Auto close tags
-			enable_rename = true, -- Auto rename pairs of tags
-			enable_close_on_slash = true, -- Auto close on trailing </
-		},
-		config = function(_, opts)
-			require("nvim-ts-autotag").setup(opts)
+		event = "VeryLazy",
+		config = function()
+			require("nvim-ts-autotag").setup({
+				opts = {
+					enable_close = true, -- Auto close tags
+					enable_rename = true, -- Auto rename pairs of tags
+					enable_close_on_slash = true, -- Auto close on trailing </
+				},
+			})
 		end,
 	},
 
@@ -72,6 +73,16 @@ return {
 			require("Comment").setup({
 				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 			})
+		end,
+	},
+	{
+		"ThePrimeagen/refactoring.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("refactoring").setup()
 		end,
 	},
 }

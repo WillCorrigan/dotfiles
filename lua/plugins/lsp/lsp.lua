@@ -80,6 +80,10 @@ return {
 			--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+			capabilities.textDocument.foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true,
+			}
 
 			-- Enable the following language servers
 			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -106,6 +110,19 @@ return {
 					on_attach = function(_, bufnr)
 						require("tailwindcss-colors").buf_attach(bufnr)
 					end,
+				},
+				rust_analyzer = {
+					capabilities = capabilities,
+					settings = {
+						["rust-analyzer"] = {
+							checkOnSave = {
+								command = "clippy",
+							},
+							diagnostics = {
+								enable = true,
+							},
+						},
+					},
 				},
 				-- tsserver = {
 				-- 	capabilities = capabilities,
