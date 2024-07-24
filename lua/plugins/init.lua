@@ -1,6 +1,7 @@
 return {
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	"rcarriga/nvim-notify",
+	"mg979/vim-visual-multi",
 	"MunifTanjim/nui.nvim",
 	"rcarriga/nvim-notify",
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
