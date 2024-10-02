@@ -9,6 +9,10 @@ return {
 					ignore = false,
 					timeout = 500,
 				},
+				diagnostics = {
+					enable = true,
+					show_on_dirs = true,
+				},
 				renderer = {
 					highlight_git = true,
 					icons = {
